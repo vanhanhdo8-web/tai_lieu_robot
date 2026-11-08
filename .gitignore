@@ -1,0 +1,24 @@
+﻿# ==========================================
+# GITIGNORE - TAI LIEU ROBOT
+# ==========================================
+
+# 1. Video huong dan (dung luong rat lon >1.2GB)
+*.wmv
+*.mp4
+*.avi
+*.mkv
+*.mov
+
+# 2. File cai dat phan mem (.exe, .msi)
+*.exe
+*.msi
+
+# 3. Thu muc phan mem Fritzing da giai nen
+**/fritzing.0.8.7b.pc/
+fritzing.0.8.7b.pc/
+
+# 4. File tam he thong
+Thumbs.db
+Desktop.ini
+.DS_Store
+*.tmp
