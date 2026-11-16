@@ -1,9 +1,12 @@
-import base64,sys
-t=open('/home/claude/build/template.html',encoding='utf-8').read()
-b64=base64.b64encode(open('/home/claude/build/robot.bin.gz','rb').read()).decode()
+import base64,sys,os
+# Chạy: python3 assemble.py inline ../robot_arm_web.html   (đọc file ngay cạnh script này)
+here=os.path.dirname(os.path.abspath(__file__))
+rd=lambda n,m='r':open(os.path.join(here,n),m,**({'encoding':'utf-8'} if m=='r' else {})).read()
+t=rd('template.html')
+b64=base64.b64encode(rd('robot.bin.gz','rb')).decode()
 inline=sys.argv[1]=='inline'
 if inline:
-    libs='<script>'+open('/home/claude/build/three.min.js').read()+'</script>\n<script>'+open('/home/claude/build/OrbitControls.js').read()+'</script>'
+    libs='<script>'+rd('three.min.js')+'</script>\n<script>'+rd('OrbitControls.js')+'</script>'
 else:
     libs='<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/build/three.min.js"></script>\n<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>'
 out=t.replace('/*LIBS*/',libs).replace('/*MODEL_B64*/',b64)

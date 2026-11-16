@@ -1,31 +1,20 @@
-MÔ PHỎNG CÁNH TAY ROBOT 4 TRỤC (BẢN WEB)
+MÔ PHỎNG CÁNH TAY ROBOT 4 TRỤC - bản web
 =========================================
+Mở file robot_arm_web.html bằng Chrome / Edge / Safari / Firefox (chạy offline, không cần cài gì).
 
-CÁCH DÙNG
-  Bấm đúp file  robot_arm_web.html  để mở bằng Chrome / Edge / Firefox / Safari bản mới.
-  Không cần cài đặt, không cần chạy server, không cần mạng (chỉ font chữ Google sẽ
-  dùng font hệ thống nếu offline).
+- Bảng trái (Điều khiển / Tự động / Chi tiết / Cơ cấu): nút "<" ở mép để thu gọn/mở.
+- Bảng phải (HUD góc nhìn, sơ đồ): mặc định đóng, nút ở mép phải.
+- Tab "Chi tiết": gõ tên theo BOM (M4 Nut, M3 6mm, F686, 624, 51105, Nema17...) hoặc dùng các nút lọc
+  Vít / Đai ốc / Ổ bi / Động cơ / Theo BOM. Bấm trực tiếp vào chi tiết trên mô hình để xem tên + kích thước.
+- Tab "Linh kiện" (mới): danh sách 19 linh kiện theo ảnh BOM, có cột "Số lượng" (theo BOM) và cột "Mô hình" (số chi tiết đếm được trong file CAD).
+  Bấm vào tên linh kiện -> toàn bộ chi tiết loại đó sáng lên trên mô hình, các phần còn lại mờ đi. Bấm lại, bấm "Bỏ chọn" hoặc bấm chỗ trống để tắt.
+  Dưới mục đang chọn có số chi tiết đang sáng, và các nút theo khâu (ví dụ M4 Nut: Đế cố định x12, Tấm khuỷu x4...) để chỉ xem chỗ lắp ở khâu đó.
+  Nút "Zoom tới" đưa camera tới nhóm đang sáng. Khi đang ở tab này, bấm vào một con vít/ốc trên mô hình sẽ chọn luôn loại đó.
+  Cột "Mô hình" xanh = khớp BOM, vàng = lệch BOM (vd M4 Nut: BOM 14, mô hình 23).
+- Tab "Cơ cấu": bảng đối chiếu số lượng BOM với số chi tiết có trong mô hình 3D.
+- Dấu ⚠ cạnh tên = kích thước vẽ trong mô hình khác BOM (tên vẫn lấy theo BOM).
 
-GIAO DIỆN
-  - Nút ‹ bên trái: thu gọn / mở bảng điều khiển (mặc định: MỞ).
-  - Nút › bên phải: mở / đóng bảng số liệu + sơ đồ cơ cấu (mặc định: ĐÓNG).
-  - Tab Điều khiển: kéo từng khớp hoặc nhập tọa độ XYZ (động học ngược), tư thế mẫu.
-  - Tab Tự động: robot gắp khối từ bệ A sang bệ B và ngược lại.
-  - Tab Chi tiết: tô theo khâu, X-quang, tách rời, mặt cắt, tìm và xem tên từng chi tiết
-    (bấm để chọn, nhấp đúp để zoom tới).
-  - Phím tắt: mũi tên (J1, J2), W/S (J3), [ ] (kẹp), Space (chạy/dừng), H (Home),
-    L (nhãn khớp), C (đổi kiểu hiển thị).
+Lưu ý: file STL không chứa tên chi tiết; tên được ghép bằng cách đo kích thước (đường kính, chiều dài, lỗ trục) và số lượng.
+Dây đai 2GT-6mm 200 mm có trong BOM nhưng mô hình CAD không vẽ.
 
-LƯU Ý
-  - Tên ốc / ổ bi / chốt được SUY RA từ hình dạng và kích thước, không phải tên thật
-    trong file CAD (file STL không chứa tên chi tiết).
-  - Giới hạn khớp (J2 -10..110 độ, J3 25..160 độ) là giá trị ước chừng, chưa tính va chạm.
-
-THƯ MỤC nguon/ (để chỉnh sửa tiếp)
-  template.html      Mã giao diện + mô phỏng (chưa nhúng mô hình)
-  robot.bin.gz       Mô hình đã tối ưu (từ robot_arm_full.stl 92 MB, còn ~3 MB)
-  assemble.py        Ghép template + mô hình thành robot_arm_web.html
-                     (python3 assemble.py inline robot_arm_web.html)
-  three.min.js, OrbitControls.js   Thư viện three.js r128
-  xu_ly_stl/         Script tách khâu và tối ưu mô hình từ file STL (tham khảo,
-                     đường dẫn trong script là của môi trường xử lý)
+nguon/ : mã nguồn. Chạy lại: python3 xu_ly_stl/prep.py (cần numpy, trimesh, fast_simplification, scipy) rồi python3 assemble.py inline out.html

@@ -43,7 +43,7 @@ button{cursor:pointer}
 .brand p{margin:2px 0 0;font-size:11.5px;color:var(--muted)}
 #panel-toggle{margin-left:auto;display:none;border:1px solid var(--line-2);background:var(--card);border-radius:8px;padding:6px 10px;font-size:12px}
 .tabs{display:flex;gap:2px;padding:0 10px;border-bottom:1px solid var(--line)}
-.tab{flex:1;background:none;border:0;border-bottom:2px solid transparent;color:var(--muted);padding:9px 4px 10px;font:600 12px var(--f-display);letter-spacing:.02em;margin-bottom:-1px}
+.tab{flex:1;min-width:0;background:none;border:0;border-bottom:2px solid transparent;color:var(--muted);padding:9px 2px 10px;font:600 11.5px var(--f-display);letter-spacing:0;margin-bottom:-1px;white-space:nowrap}
 .tab:hover{color:var(--fg)}
 .tab[aria-selected="true"]{color:var(--fg);border-bottom-color:var(--accent)}
 .tabbody{flex:1;overflow-y:auto;overflow-x:hidden;padding:14px;min-height:0;scrollbar-width:thin;scrollbar-color:var(--line-2) transparent}
@@ -120,10 +120,41 @@ ol.steps li i{position:absolute;left:0;bottom:0;height:2px;background:var(--acce
 kbd{font:500 11px var(--f-mono);background:var(--card-2);border:1px solid var(--line-2);border-radius:5px;padding:1px 6px;color:var(--fg);white-space:nowrap}
 #part-q{width:100%;background:var(--bg-2);border:1px solid var(--line-2);border-radius:8px;padding:8px 10px;font-size:12.5px}
 #part-q::placeholder{color:var(--faint)}
+.chips{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:6px}
+.chips button{border:1px solid var(--line-2);background:var(--bg-2);color:var(--muted);font-size:11.5px;padding:3px 9px;border-radius:99px}
+.chips button[aria-pressed="true"]{background:var(--card-2);color:var(--fg);border-color:var(--accent,#ff6410)}
+.wn{color:#f5b942;font-weight:700}
+.bomt{width:100%;border-collapse:collapse;font-size:11.5px;margin-top:6px}
+.bomt th,.bomt td{padding:4px 5px;text-align:left;border-bottom:1px solid var(--line)}
+.bomt td.n{text-align:right;font-family:var(--f-mono)}.bomt .ok{color:#5fd38d}.bomt .df{color:#f5b942}
+.bomt small{display:block;color:var(--faint);font-size:10.5px}
 .plist{margin-top:6px;max-height:200px;overflow-y:auto;display:flex;flex-direction:column;gap:2px;scrollbar-width:thin}
 .pi{display:flex;gap:8px;align-items:center;text-align:left;border:0;background:none;padding:5px 8px;border-radius:7px;font-size:12px;color:var(--fg);width:100%}
 .pi:hover,.pi[aria-pressed="true"]{background:var(--card)}
 .pi small{margin-left:auto;padding-left:6px;color:var(--faint);font:400 10.5px var(--f-mono);white-space:nowrap}
+/* ---------- tab Linh kiện ---------- */
+.kit-h,.kit-r{display:grid;grid-template-columns:minmax(0,1fr) 62px 52px;align-items:center;gap:6px}
+.kit-h{white-space:nowrap;padding:0 8px 2px;font:600 10px var(--f-display);text-transform:uppercase;letter-spacing:.08em;color:var(--faint)}
+.kit-h span:nth-child(n+2){text-align:right}
+.kit-g{margin:12px 0 3px;padding:0 8px;font:600 10.5px var(--f-display);text-transform:uppercase;letter-spacing:.1em;color:var(--muted)}
+.kit-r{width:100%;text-align:left;border:1px solid transparent;background:none;padding:7px 8px;border-radius:8px;font-size:12.5px;color:var(--fg)}
+.kit-r:hover{background:var(--card)}
+.kit-r[aria-pressed="true"]{background:var(--card-2);border-color:var(--accent);box-shadow:0 0 0 3px rgba(255,122,31,.16)}
+.kit-r .nm{display:flex;gap:8px;align-items:center;min-width:0;font-weight:500}
+.kit-r .nm i{width:8px;height:8px;border-radius:2px;flex:none}
+.kit-r .nm span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.kit-r .q{font:600 13px var(--f-mono);text-align:right;font-variant-numeric:tabular-nums}
+.kit-r .m{font:500 12px var(--f-mono);text-align:right;font-variant-numeric:tabular-nums;color:var(--faint)}
+.kit-r .m.ok{color:var(--ok)}.kit-r .m.df{color:var(--warn)}
+.kit-d{margin:2px 0 6px;padding:10px 11px;background:var(--bg-2);border:1px solid var(--line);border-radius:9px;display:flex;flex-direction:column;gap:8px;font-size:12px;color:var(--muted);line-height:1.5}
+.kit-d b{color:var(--fg)}
+.kit-d .lit{font-size:13px;color:var(--fg)}.kit-d .lit b{font:700 15px var(--f-mono);color:var(--accent-2)}
+.kit-d .df{color:var(--warn)}
+.kit-d .chips{margin:0}
+.kit-d .chips button{display:inline-flex;align-items:center;gap:6px}
+.kit-d .chips button i{width:7px;height:7px;border-radius:2px;flex:none}
+.kit-d .chips button em{font:600 11px var(--f-mono);font-style:normal;color:var(--fg)}
+.kit-d .btns .btn{padding:6px 8px;font-size:12px}
 .eq{font:400 11.5px/1.7 var(--f-mono);color:var(--muted);background:var(--bg-2);border:1px solid var(--line);border-radius:9px;padding:9px 11px;overflow-x:auto;white-space:pre}
 
 /* ---------- HUD phải ---------- */
@@ -222,6 +253,7 @@ canvas.sch{display:block;width:100%;border-radius:8px;background:var(--bg-2);bor
       <button class="tab" role="tab" aria-selected="true" data-tab="ctl">Điều khiển</button>
       <button class="tab" role="tab" aria-selected="false" data-tab="auto">Tự động</button>
       <button class="tab" role="tab" aria-selected="false" data-tab="parts">Chi tiết</button>
+      <button class="tab" role="tab" aria-selected="false" data-tab="kit">Linh kiện</button>
       <button class="tab" role="tab" aria-selected="false" data-tab="about">Cơ cấu</button>
     </nav>
     <div class="tabbody">
@@ -260,10 +292,15 @@ canvas.sch{display:block;width:100%;border-radius:8px;background:var(--bg-2);bor
           <div class="jc"><div class="jc-top"><span class="t">Mặt cắt</span><span class="v" id="cut-v">tắt</span></div>
             <div class="jc-row"><select id="cut-axis" aria-label="Trục cắt"><option value="2">Dọc (Z)</option><option value="0">Dọc (X)</option><option value="1">Ngang (Y)</option></select><input type="range" id="cut" min="-200" max="200" value="0" aria-label="Vị trí mặt cắt" disabled><button class="step" id="cut-on" type="button" aria-pressed="false" title="Bật/tắt mặt cắt">✂</button></div></div>
         </div>
-        <div><h3 style="margin-bottom:8px">Tìm chi tiết</h3><input id="part-q" type="search" placeholder="ví dụ: vít, ổ bi, đai ốc, bánh răng, động cơ" autocomplete="off" aria-label="Tìm chi tiết"><div class="plist" id="plist"></div></div>
+        <div><h3 style="margin-bottom:8px">Tìm chi tiết</h3><div class="chips" id="pchips"><button type="button" data-k="" aria-pressed="true">Chính</button><button type="button" data-k="screw" aria-pressed="false">Vít</button><button type="button" data-k="nut" aria-pressed="false">Đai ốc</button><button type="button" data-k="bearing" aria-pressed="false">Ổ bi</button><button type="button" data-k="motor" aria-pressed="false">Động cơ</button><button type="button" data-k="bom" aria-pressed="false">Theo BOM</button></div><input id="part-q" type="search" placeholder="ví dụ: M4 Nut, F686, 624, 51105, M3 6mm" autocomplete="off" aria-label="Tìm chi tiết"><div class="plist" id="plist"></div></div>
         <div><h3 style="margin-bottom:8px">Các khâu (bấm để xem, ◉ để ẩn)</h3><div class="links" id="links"></div></div>
         <label class="check"><input type="checkbox" id="dim-on" checked> Làm mờ phần còn lại khi chọn một khâu</label>
         <div class="info" id="info"></div>
+      </section>
+
+      <section class="pane" id="tab-kit" hidden>
+        <p class="note">Danh sách linh kiện theo ảnh BOM. <b style="color:var(--fg)">Bấm vào tên</b> để mọi chi tiết loại đó sáng lên trên mô hình (bấm lại hoặc bấm vào chỗ trống để bỏ chọn). Cột <b style="color:var(--fg)">Số lượng</b> là số trong BOM; cột <b style="color:var(--fg)">Mô hình</b> là số chi tiết đếm được trong file CAD.</p>
+        <div id="kit"></div>
       </section>
 
       <section class="pane" id="tab-about" hidden>
@@ -280,6 +317,9 @@ Hai động cơ vai: A → tay đòn dưới (J2)
 J2 = góc ngẩng của tay đòn dưới
 J3 = góc trong giữa hai tay đòn
 φ  = J2 + 180° + J3  (hướng cẳng tay)</div>
+        <h3>Đối chiếu với BOM</h3>
+        <p class="note">Tên chi tiết lấy theo BOM của bạn. File STL không lưu tên, nên việc ghép dựa trên kích thước đo trực tiếp (đường kính, chiều dài, lỗ trục) và số lượng. ⚠ = kích thước vẽ khác BOM.</p>
+        <div style="overflow-x:auto"><table class="bomt" id="bom-table"></table></div>
         <h3>Số liệu mô hình</h3>
         <div class="stat" id="model-stats"></div>
         <h3>Phím tắt</h3>
@@ -455,9 +495,10 @@ for(const p of man.parts){
   const mat=new THREE.MeshStandardMaterial({color:0xffffff,roughness:.5,metalness:.1,envMapIntensity:1});
   const m=new THREE.Mesh(geo,mat);
   m.castShadow=true;m.receiveShadow=true;
-  m.userData={group:p.group,link:G2L[p.group],mat:p.mat,name:p.name,desc:p.desc,dims:p.dims||[],small,major:!/suy ra từ hình dạng/.test(p.desc),zc:p.mn[2]+p.sc[2]/2,tris:p.tris};
+  m.userData={group:p.group,link:G2L[p.group],mat:p.mat,name:p.name,desc:p.desc,dims:p.dims||[],small,cat:p.cat||'inferred',warn:!!p.warn,kw:p.kw||'',bk:p.bk||'',major:(p.cat==='main'||p.cat==='pulley'||p.cat==='endstop'||/^Nema17 Stepper/.test(p.name)),zc:p.mn[2]+p.sc[2]/2,tris:p.tris};
   gn[p.group].add(m);meshes.push(m);
 }
+$('#bom-table').innerHTML='<tr><th>Mục BOM</th><th style="text-align:right">BOM</th><th style="text-align:right">Mô hình</th></tr>'+man.bom.map(r=>`<tr><td>${r[0]}${r[3]?`<small>${r[3]}</small>`:''}</td><td class="n">${r[1]}</td><td class="n ${r[1]===r[2]?'ok':'df'}">${r[2]}</td></tr>`).join('');
 $('#model-stats').innerHTML=`<span>Tam giác ở file STL gốc</span><span>${man.stats.orig_tris.toLocaleString('vi-VN')}</span><span>Bi vòng bi bị che khuất (bỏ)</span><span>${man.stats.dropped.toLocaleString('vi-VN')}</span><span>Tam giác sau tối ưu</span><span>${man.stats.final.toLocaleString('vi-VN')}</span><span>Số khâu / chi tiết dựng riêng</span><span>${Object.keys(LINKS).length} / ${meshes.length}</span><span>Dung lượng STL → web</span><span>92 MB → ~3 MB</span>`;
 
 /* ================= 4. ĐỘNG HỌC ================= */
@@ -526,7 +567,8 @@ function applyPose(s){
 }
 
 /* ================= 5. GIAO DIỆN HIỂN THỊ ================= */
-const state={colorMode:'cad',hoverM:null,selPart:null,sel:null,hidden:new Set(),dim:true,cut:{on:false,axis:2,pos:0}};
+const state={colorMode:'cad',hoverM:null,selPart:null,sel:null,bomSet:null,hidden:new Set(),dim:true,cut:{on:false,axis:2,pos:0}};
+const kit={sel:-1,link:null,items:[]};
 const clipPlane=new THREE.Plane(new THREE.Vector3(0,0,-1),0);
 const baseCol={plastic:'#ff6410',steel:'#c3ccd8',motor:'#262b33'};
 function catLook(m){
@@ -537,7 +579,7 @@ function catLook(m){
   return{c:baseCol.plastic,r:.55,m:.04};
 }
 function refreshLook(){
-  const cm=state.colorMode, sel=state.sel, sp=state.selPart, hm=state.hoverM;
+  const cm=state.colorMode, sel=state.sel, sp=state.selPart, hm=state.hoverM, bs=state.bomSet;
   for(const m of meshes){
     const u=m.userData, L=u.link, mt=m.material, lk=LINKS[L];
     let col,r,me,op=1;
@@ -545,14 +587,16 @@ function refreshLook(){
     else{col=lk.c;r=.5;me=.12;if(u.mat==='steel'){me=.5;r=.4}}
     if(cm==='xray')op=.3;
     if(sp){if(sp===m)op=1;else if(state.dim)op=Math.min(op,.16)}
+    else if(bs){if(bs.has(m))op=1;else if(state.dim)op=Math.min(op,.16)}
     else if(sel){if(sel===L){op=1}else if(state.dim)op=Math.min(op,.1)}
     const hidden=state.hidden.has(L);
     m.visible=!hidden;
     mt.color.set(col);mt.roughness=r;mt.metalness=me;
     let ec=lk.c,ei=sel===L?.2:0;
-    if(m===sp){ec='#ff7a1f';ei=.9}else if(m===hm){ec='#ffffff';ei=.5}
+    const inBom=!!bs&&bs.has(m);
+    if(m===sp||inBom){ec='#ff7a1f';ei=.9}else if(m===hm){ec='#ffffff';ei=.5}
     mt.emissive.set(ec);mt.emissiveIntensity=ei;
-    const isSel=m===sp&&u.small;
+    const isSel=(m===sp||inBom)&&u.small;
     const trn=op<.99||isSel;
     mt.depthTest=!isSel;m.renderOrder=isSel?10:0;
     const side=state.cut.on?THREE.DoubleSide:THREE.FrontSide;
@@ -574,7 +618,7 @@ renderer.domElement.addEventListener('pointerleave',()=>{ptr.inside=false;setHov
 renderer.domElement.addEventListener('pointerdown',e=>{ptr.down=[e.clientX,e.clientY]});
 renderer.domElement.addEventListener('pointerup',e=>{
   if(!ptr.down)return;const moved=Math.hypot(e.clientX-ptr.down[0],e.clientY-ptr.down[1]);ptr.down=null;
-  if(moved<5){const h=pick();if(h)selectPart(h);else{selectLink(null)}}
+  if(moved<5){const h=pick();if(h){if(!$('#tab-kit').hidden)kitPickMesh(h);else selectPart(h)}else{selectLink(null)}}
 });
 function pick(){
   const r=renderer.domElement.getBoundingClientRect();
@@ -864,14 +908,14 @@ $('#info').addEventListener('click',e=>{const a=e.target.closest('[data-act]');i
 function afterSelect(){
   $$('.lk').forEach(b=>b.setAttribute('aria-pressed',b.dataset.l===(state.sel||(state.selPart&&state.selPart.userData.link))));
   $$('.pi').forEach(b=>b.setAttribute('aria-pressed',meshes[+b.dataset.i]===state.selPart));
-  renderInfo();refreshLook();
+  renderInfo();refreshLook();renderKit();
 }
 function selectLink(k){
-  state.selPart=null;state.sel=k;afterSelect();
+  state.selPart=null;state.sel=k;state.bomSet=null;kit.sel=-1;kit.link=null;afterSelect();
   if(k&&$('#tab-parts').hidden)$('.tab[data-tab="parts"]').click();
 }
 function selectPart(m,focus){
-  state.selPart=m;state.sel=null;afterSelect();
+  state.selPart=m;state.sel=null;state.bomSet=null;kit.sel=-1;kit.link=null;afterSelect();
   if(m&&$('#tab-parts').hidden)$('.tab[data-tab="parts"]').click();
   if(m&&focus)focusPart(m);
 }
@@ -883,16 +927,148 @@ function focusPart(m){
   camGoal={p:c.clone().add(dir.multiplyScalar(dist)),t:c};
 }
 /* tìm chi tiết */
+let partCat='';
 const norm=t=>t.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/đ/g,'d');
 function renderPartList(){
   const q=norm($('#part-q').value.trim()).split(/\s+/).filter(Boolean);
-  let rows=meshes.map((m,i)=>({m,i,h:norm(m.userData.name+' '+LINKS[m.userData.link].n)})).filter(r=>q.length?q.every(t=>r.h.includes(t)):r.m.userData.major);
+  let rows=meshes.map((m,i)=>({m,i,h:norm(m.userData.name+' '+m.userData.kw+' '+LINKS[m.userData.link].n)})).filter(r=>(!partCat||r.m.userData.cat===partCat||(partCat==='bom'&&r.m.userData.bk))&&(q.length?q.every(t=>r.h.includes(t)):(partCat?true:r.m.userData.major)));
   const tot=rows.length;rows=rows.slice(0,80);
-  $('#plist').innerHTML=rows.map(r=>`<button class="pi" type="button" data-i="${r.i}" aria-pressed="${r.m===state.selPart}"><span class="sw" style="width:8px;height:8px;border-radius:2px;background:${LINKS[r.m.userData.link].c};flex:none"></span><span style="min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${r.m.userData.name}</span><small>${LINKS[r.m.userData.link].n}</small></button>`).join('')+(tot>80?`<div class="note" style="padding:4px 8px">Còn ${tot-80} kết quả, hãy gõ thêm từ khóa.</div>`:'')||'<div class="note" style="padding:6px 8px">Không có chi tiết nào khớp.</div>';
+  $('#plist').innerHTML=rows.map(r=>`<button class="pi" type="button" data-i="${r.i}" aria-pressed="${r.m===state.selPart}"><span class="sw" style="width:8px;height:8px;border-radius:2px;background:${LINKS[r.m.userData.link].c};flex:none"></span><span style="min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${r.m.userData.name}${r.m.userData.warn?' <b class="wn" title="Kích thước trên mô hình khác BOM">⚠</b>':''}</span><small>${LINKS[r.m.userData.link].n}</small></button>`).join('')+(tot>80?`<div class="note" style="padding:4px 8px">Còn ${tot-80} kết quả, hãy gõ thêm từ khóa.</div>`:'')||'<div class="note" style="padding:6px 8px">Không có chi tiết nào khớp.</div>';
 }
 $('#part-q').addEventListener('input',renderPartList);
+$('#pchips').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;partCat=b.dataset.k;$$('#pchips button').forEach(x=>x.setAttribute('aria-pressed',x===b));renderPartList()});
 $('#plist').addEventListener('click',e=>{const b=e.target.closest('.pi');if(b)selectPart(meshes[+b.dataset.i],true)});
 renderPartList();
+
+/* ================= 9b. TAB LINH KIỆN (BOM theo ảnh) ================= */
+/* q = số lượng ghi trong ảnh BOM. Mô hình được ghép với BOM qua trường bk của từng chi tiết.
+   also = chi tiết đi kèm (trụ góc, trục, bi cầu...) cùng sáng để mô hình nhìn trọn vẹn.
+   unit = cách đếm "1 chiếc" khi một chiếc gồm nhiều mesh. */
+const KIT=[
+ {g:'Động cơ và công tắc',c:'#4aa3ff',it:[
+  {n:'Nema17 Stepper Motor',q:3,bk:'Nema17 Stepper Motor',also:['Góc thân Nema17 (Ø20 × 47,3)','Trục động cơ Ø5 × 64,8','Nhãn dán động cơ'],tip:'Sáng cả thân, 4 trụ góc, trục và nhãn của từng động cơ.'},
+  {n:'End Stop',q:3,bk:'End Stop',also:['Chân tiếp điểm Ø0,5 × 4,5'],tip:'Sáng cả thân công tắc và các chân tiếp điểm.'}]},
+ {g:'Truyền động và ổ bi',c:'#2dd4bf',it:[
+  {n:'2GT Pulley 20 Teeth',q:3,bk:'2GT Pulley 20 Teeth'},
+  {n:'F624',q:6,bk:'F624'},
+  {n:'F686',q:12,bk:'F686',unit:m=>/vòng ngoài/.test(m.userData.name),pair:true,tip:'Mỗi ổ gồm vòng ngoài và vòng trong, cả hai cùng sáng.'},
+  {n:'51105',q:1,bk:'51105',also:['Bi cầu Ø6 (51105)'],fixed:1,tip:'Ổ bi chặn: 3 vòng và 16 viên bi Ø6, tất cả cùng sáng.'},
+  {n:'2GT-6mm Closed Belt 200mm',q:3,bk:null}]},
+ {g:'Vít',c:'#c3ccd8',it:[
+  {n:'M2 10mm',q:6,bk:'M2 10mm'},{n:'M3 6mm',q:36,bk:'M3 6mm'},{n:'M4 10mm',q:6,bk:'M4 10mm'},{n:'M4 16mm',q:8,bk:'M4 16mm'},{n:'M4 20mm',q:6,bk:'M4 20mm'},
+  {n:'M6 20mm',q:1,bk:'M6 20mm'},{n:'M6 40mm',q:2,bk:'M6 40mm'},{n:'M6 50mm',q:1,bk:'M6 50mm'}]},
+ {g:'Đai ốc',c:'#fbbf24',it:[
+  {n:'M2 Nut',q:6,bk:'M2 Nut'},{n:'M3 Nut',q:4,bk:'M3 Nut'},{n:'M4 Nut',q:14,bk:'M4 Nut'},{n:'M6 Nut',q:4,bk:'M6 Nut'}]}
+];
+(function buildKit(){
+  const byBk={};meshes.forEach(m=>{const k=m.userData.bk;if(k)(byBk[k]=byBk[k]||[]).push(m)});
+  const bomNote={};(man.bom||[]).forEach(r=>{if(r[3])bomNote[r[0].toLowerCase()]=r[3]});
+  const owner=new Map();
+  KIT.forEach(G=>G.it.forEach(it=>{
+    it.col=G.c;
+    it.main=it.bk?(byBk[it.bk]||[]).slice():[];
+    /* ổ bi F624 liền với vít M4 (CAD gộp một mesh): tính cả cho vít */
+    it.fused=meshes.filter(m=>m.userData.bk!==it.bk&&m.userData.name.includes('+ '+it.n));
+    it.extra=(it.also||[]).flatMap(k=>byBk[k]||[]);
+    it.all=[...new Set([...it.main,...it.fused,...it.extra])];
+    it.units=it.unit?it.main.filter(it.unit):it.fixed?[]:[...it.main,...it.fused];
+    it.count=it.fixed!=null?it.fixed:it.units.length;
+    it.note=bomNote[it.n.toLowerCase()]||'';
+    kit.items.push(it);
+  }));
+  kit.items.forEach(it=>it.main.forEach(m=>{if(!owner.has(m))owner.set(m,it)}));
+  kit.items.forEach(it=>[...it.fused,...it.extra].forEach(m=>{if(!owner.has(m))owner.set(m,it)}));
+  kit.owner=owner;
+})();
+const pairKey=m=>{const x=/· (\d+)\//.exec(m.userData.name);return x?x[1]:null};
+function kitLit(it,link){
+  if(!link)return it.all;
+  const inLink=it.all.filter(m=>m.userData.link===link);
+  if(!it.pair)return inLink;
+  const keys=new Set(it.units.filter(m=>m.userData.link===link).map(pairKey));
+  return it.all.filter(m=>keys.has(pairKey(m)));
+}
+function kitUnitsIn(it,link){
+  if(!link)return it.count;
+  return it.units.filter(m=>m.userData.link===link).length;
+}
+function selectKit(i){
+  kit.sel=kit.sel===i?-1:i;kit.link=null;
+  state.selPart=null;state.sel=null;applyKit();
+}
+function applyKit(){
+  const it=kit.sel>=0?kit.items[kit.sel]:null;
+  const list=it?kitLit(it,kit.link):null;
+  state.bomSet=list&&list.length?new Set(list):null;
+  afterSelect();
+}
+function kitPickMesh(m){
+  const it=kit.owner.get(m);
+  if(it&&!(state.bomSet&&state.bomSet.has(m))){kit.sel=kit.items.indexOf(it);kit.link=null;state.selPart=null;state.sel=null;applyKit()}
+  toast(m.userData.name+' · '+LINKS[m.userData.link].n);
+}
+function focusSet(list){
+  if(!list||!list.length)return;
+  const box=new THREE.Box3(),c=new THREE.Vector3();
+  list.forEach(m=>{m.geometry.computeBoundingSphere();const bs=m.geometry.boundingSphere;m.updateWorldMatrix(true,false);c.copy(bs.center);m.localToWorld(c);box.expandByPoint(c.clone().addScalar(bs.radius));box.expandByPoint(c.clone().addScalar(-bs.radius))});
+  const ctr=box.getCenter(new THREE.Vector3()),r=box.getSize(new THREE.Vector3()).length()/2;
+  const dir=camera.position.clone().sub(controls.target).normalize();
+  follow=false;$$('[data-cam]').forEach(b=>b.setAttribute('aria-pressed','false'));
+  camGoal={p:ctr.clone().add(dir.multiplyScalar(clamp(r*2.6,90,820))),t:ctr};
+}
+function renderKit(){
+  const host=$('#kit');if(!host||!kit.items.length)return;
+  const hadFocus=host.contains(document.activeElement);
+  let h='<div class="kit-h"><span>Linh kiện</span><span title="Số lượng ghi trong BOM">Số lượng</span><span title="Số chi tiết có trong mô hình CAD">Mô hình</span></div>';
+  let idx=0;
+  KIT.forEach(G=>{
+    h+=`<div class="kit-g">${G.g}</div>`;
+    G.it.forEach(it=>{
+      const i=idx++,on=kit.sel===i,d=it.count-it.q;
+      const cls=d===0?'ok':'df';
+      h+=`<button type="button" class="kit-r" data-i="${i}" aria-pressed="${on}"><span class="nm"><i style="background:${it.col}"></i><span>${it.n}</span></span><span class="q">×${it.q}</span><span class="m ${cls}" title="${d===0?'Khớp BOM':d>0?'Mô hình nhiều hơn BOM '+d:'Mô hình ít hơn BOM '+(-d)}">${it.count}</span></button>`;
+      if(on)h+=kitDetail(it,d);
+    });
+  });
+  host.innerHTML=h;
+  if(kit.sel>=0){const b=host.querySelector(`.kit-r[data-i="${kit.sel}"]`);if(b){if(hadFocus)b.focus({preventScroll:true});const dEl=b.nextElementSibling;if(dEl&&dEl.scrollIntoView)dEl.scrollIntoView({block:'nearest'})}}
+}
+function kitDetail(it,d){
+  const lit=state.bomSet?state.bomSet.size:0;
+  let t='';
+  if(!it.all.length){
+    t=`<div class="lit">Không có chi tiết nào để làm sáng.</div><div>${it.bk===null?'File CAD không vẽ dây đai, nên trên mô hình không có gì sáng. Cần '+it.q+' sợi theo BOM.':'Không thấy loại này trong file CAD (BOM ghi '+it.q+').'}</div>`;
+  }else{
+    const u=kitUnitsIn(it,kit.link);
+    t=`<div class="lit">Đang sáng <b>${u}</b> ${it.unit||it.fixed?'chiếc':'chi tiết'}${kit.link?' trong '+LINKS[kit.link].n.toLowerCase():' trên mô hình'} <span style="color:var(--faint)">(${lit} mảnh 3D)</span></div>`;
+    if(!kit.link){
+      if(d===0)t+=`<div>Khớp BOM: ${it.q} chiếc.</div>`;
+      else t+=`<div class="df">BOM ghi ${it.q} chiếc, mô hình CAD có ${it.count} (${d>0?'nhiều hơn '+d:'ít hơn '+(-d)}).</div>`;
+    }
+    if(it.fused.length)t+=`<div>Trong đó ${it.fused.length} chiếc nằm liền trong ổ bi F624 (CAD gộp thành một khối).</div>`;
+    const wv=it.main.filter(m=>/ \+ M4 /.test(m.userData.name)).length;
+    if(wv)t+=`<div>Trong đó ${wv} ổ nằm liền với vít M4 (CAD gộp thành một khối).</div>`;
+    if(it.tip)t+=`<div>${it.tip}</div>`;
+    if(it.note&&!kit.link)t+=`<div style="color:var(--faint)">${it.note}</div>`;
+    if(it.units.length>1){
+      const cnt={};it.units.forEach(m=>cnt[m.userData.link]=(cnt[m.userData.link]||0)+1);
+      const keys=Object.keys(LINKS).filter(k=>cnt[k]);
+      if(keys.length>1||kit.link)t+=`<div><div style="margin-bottom:5px">Lắp ở khâu (bấm để chỉ xem khâu đó):</div><div class="chips" id="kit-links">${keys.map(k=>`<button type="button" data-l="${k}" aria-pressed="${kit.link===k}"><i style="background:${LINKS[k].c}"></i>${LINKS[k].n}<em>×${cnt[k]}</em></button>`).join('')}</div></div>`;
+    }
+    t+=`<div class="btns"><button class="btn" type="button" data-act="zoom">Zoom tới</button><button class="btn" type="button" data-act="clear">Bỏ chọn</button></div>`;
+  }
+  if(!it.all.length)t+=`<div class="btns"><button class="btn" type="button" data-act="clear">Đóng</button></div>`;
+  return `<div class="kit-d">${t}</div>`;
+}
+$('#kit').addEventListener('click',e=>{
+  const r=e.target.closest('.kit-r');if(r){selectKit(+r.dataset.i);return}
+  const c=e.target.closest('#kit-links button');
+  if(c){kit.link=kit.link===c.dataset.l?null:c.dataset.l;applyKit();return}
+  const a=e.target.closest('[data-act]');if(!a)return;
+  if(a.dataset.act==='clear'){kit.sel=-1;kit.link=null;applyKit()}
+  else if(a.dataset.act==='zoom'&&state.bomSet)focusSet([...state.bomSet]);
+});
+renderKit();
 $$('#color-seg button').forEach(b=>b.onclick=()=>{state.colorMode=b.dataset.c;$$('#color-seg button').forEach(x=>x.setAttribute('aria-pressed',x===b));refreshLook()});
 $('#dim-on').onchange=e=>{state.dim=e.target.checked;refreshLook()};
 $('#explode').oninput=e=>{explode=e.target.value/100;e.target.style.setProperty('--p',e.target.value+'%');$('#ex-v').textContent=e.target.value+'%'};
